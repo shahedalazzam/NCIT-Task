@@ -11,7 +11,7 @@ const validationSchema = yup.object({
     .string()
     .min(3, "enter product Name")
     .required("productName is required"),
-  Price: yup.string().required("Price is required"),
+    PassMark: yup.string().required("PassMark is required"),
 });
 
 const AddItem = () => {
@@ -104,22 +104,22 @@ const AddItem = () => {
                         formik.handleChange(event);
                         handleInputChange(event);
                       }}
-                      value={formik.values.Price}
+                      value={formik.values.PassMark}
                       className="form-control"
                       type="text"
-                      name="Price"
+                      name="PassMark"
                       placeholder="Pass Mark"
                       required
                     />
                     <span
                       className={
-                        formik.touched.Price && formik.errors.Price
+                        formik.touched.PassMark && formik.errors.PassMark
                           ? "invalid-feedback"
                           : "valid-feedback"
                       }
                     >
-                      {formik.touched.Price && formik.errors.Price
-                        ? formik.errors.Price
+                      {formik.touched.PassMark && formik.errors.PassMark
+                        ? formik.errors.PassMark
                         : ""}
                     </span>
                   </div>
