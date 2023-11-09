@@ -11,11 +11,7 @@ const validationSchema = yup.object({
     .string()
     .min(3, "enter product Name")
     .required("productName is required"),
-  Price: yup.string().required("Price is required"),
-  Color: yup.string().required("Color is required"),
   Brand: yup.string().required("Brand is required"),
-  Size: yup.string().required("Size is required"),
-  Category: yup.string().required("Category is required"),
 });
 
 const AddItem = () => {
@@ -25,7 +21,7 @@ const AddItem = () => {
   const onSubmit = async (values) => {
     console.log("object");
     const response = await axios
-      .post("https://dream-wedding.onrender.com/admin/item/add", values)
+      .post("z/admin/item/add", values)
       .catch((err) => {
         if (err && err.response) {
           // console.log("Error: ", err.response.data.message)
@@ -46,7 +42,7 @@ const AddItem = () => {
   const formik = useFormik({
     initialValues: {
       Name: "",
-      Size: "",
+      Brand: "",
     },
     validateOnBlur: true,
     onSubmit,
@@ -99,6 +95,7 @@ const AddItem = () => {
                         : ""}
                     </span>
                   </div>
+
                   <div className="col-md-12">
                     <input
                       onBlur={formik.handleBlur}
@@ -106,22 +103,22 @@ const AddItem = () => {
                         formik.handleChange(event);
                         handleInputChange(event);
                       }}
-                      value={formik.values.Size}
+                      value={formik.values.Brand}
                       className="form-control"
                       type="text"
-                      name="Size"
-                      placeholder="Size"
+                      name="Brand"
+                      placeholder="Brand"
                       required
                     />
                     <span
                       className={
-                        formik.touched.Size && formik.errors.Size
+                        formik.touched.Brand && formik.errors.Brand
                           ? "invalid-feedback"
                           : "valid-feedback"
                       }
                     >
-                      {formik.touched.Size && formik.errors.Size
-                        ? formik.errors.Size
+                      {formik.touched.Brand && formik.errors.Brand
+                        ? formik.errors.Brand
                         : ""}
                     </span>
                   </div>
