@@ -46,11 +46,7 @@ const AddItem = () => {
   const formik = useFormik({
     initialValues: {
       Name: "",
-      Price: "",
-      Color: "",
-      Brand: "",
       Size: "",
-      Category: "",
     },
     validateOnBlur: true,
     onSubmit,
@@ -110,85 +106,6 @@ const AddItem = () => {
                         formik.handleChange(event);
                         handleInputChange(event);
                       }}
-                      value={formik.values.Price}
-                      className="form-control"
-                      type="text"
-                      name="Price"
-                      placeholder="Price"
-                      required
-                    />
-                    <span
-                      className={
-                        formik.touched.Price && formik.errors.Price
-                          ? "invalid-feedback"
-                          : "valid-feedback"
-                      }
-                    >
-                      {formik.touched.Price && formik.errors.Price
-                        ? formik.errors.Price
-                        : ""}
-                    </span>
-                  </div>
-
-                  <div className="col-md-12">
-                    <input
-                      onBlur={formik.handleBlur}
-                      onChange={(event) => {
-                        formik.handleChange(event);
-                        handleInputChange(event);
-                      }}
-                      value={formik.values.Color}
-                      className="form-control"
-                      type="color"
-                      name="Color"
-                      required
-                    />
-                    <span
-                      className={
-                        formik.touched.Color && formik.errors.Color
-                          ? "invalid-feedback"
-                          : "valid-feedback"
-                      }
-                    >
-                      {formik.touched.Color && formik.errors.Color
-                        ? formik.errors.Color
-                        : ""}
-                    </span>
-                  </div>
-
-                  <div className="col-md-12">
-                    <input
-                      onBlur={formik.handleBlur}
-                      onChange={(event) => {
-                        formik.handleChange(event);
-                        handleInputChange(event);
-                      }}
-                      value={formik.values.Brand}
-                      className="form-control"
-                      type="text"
-                      name="Brand"
-                      placeholder="Brand"
-                      required
-                    />
-                    <span
-                      className={
-                        formik.touched.Brand && formik.errors.Brand
-                          ? "invalid-feedback"
-                          : "valid-feedback"
-                      }
-                    >
-                      {formik.touched.Brand && formik.errors.Brand
-                        ? formik.errors.Brand
-                        : ""}
-                    </span>
-                  </div>
-                  <div className="col-md-12">
-                    <input
-                      onBlur={formik.handleBlur}
-                      onChange={(event) => {
-                        formik.handleChange(event);
-                        handleInputChange(event);
-                      }}
                       value={formik.values.Size}
                       className="form-control"
                       type="text"
@@ -205,32 +122,6 @@ const AddItem = () => {
                     >
                       {formik.touched.Size && formik.errors.Size
                         ? formik.errors.Size
-                        : ""}
-                    </span>
-                  </div>
-                  <div className="col-md-12">
-                    <input
-                      onBlur={formik.handleBlur}
-                      onChange={(event) => {
-                        formik.handleChange(event);
-                        handleInputChange(event);
-                      }}
-                      value={formik.values.Category}
-                      className="form-control"
-                      type="text"
-                      name="Category"
-                      placeholder="Category"
-                      required
-                    />
-                    <span
-                      className={
-                        formik.touched.Category && formik.errors.Category
-                          ? "invalid-feedback"
-                          : "valid-feedback"
-                      }
-                    >
-                      {formik.touched.Category && formik.errors.Category
-                        ? formik.errors.Category
                         : ""}
                     </span>
                   </div>

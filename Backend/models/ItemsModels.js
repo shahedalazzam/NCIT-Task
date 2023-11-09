@@ -4,11 +4,6 @@ const mongoose = require('mongoose')
 
 const itemSchema = new mongoose.Schema({
     Name: String,
-    Category: String,
-    Price: String,
-    Color: String,
-    Img: String,
-    Brand: String,
     Size: String
 
 },
