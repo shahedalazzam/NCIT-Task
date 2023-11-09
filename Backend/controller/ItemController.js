@@ -2,7 +2,7 @@ const { Order, Item } = require("../models/ItemsModels");
 const UserModel = require("../models/UserModels");
 
 exports.CreatItem = async (req, res) => {
-    const { Name, PassMark} = req.body
+    const { Name, Price, Color, Img, Brand, Size, Category } = req.body
     try {
 
         const ItemExist = await Item.findOne({ Name, Brand }).catch((err) => {
@@ -15,14 +15,24 @@ exports.CreatItem = async (req, res) => {
         else {
             const ItemCreate = await Item.create({
                 Name,
-                PassMark
+                Price,
+                Color,
+                Img,
+                Brand,
+                Size,
+                Category
             })
 
             res.status(201).json({
                 message: "Successful Create Item",
                 data: {
                     Name: ItemCreate.Name,
-                    PassMark: ItemCreate.PassMark
+                    Price: ItemCreate.Price,
+                    Color: ItemCreate.Color,
+                    Img: ItemCreate.Img,
+                    Brand: ItemCreate.Brand,
+                    Size: ItemCreate.Size,
+                    Category: ItemCreate.Category
                 }
             })
         }
@@ -62,12 +72,16 @@ exports.GetItem = async (req, res) => {
 
 exports.UpadetItem = async (req, res) => {
     const id = req.params.id
-    const { Name, PassMark } = req.body
+    const { Name, Price, Color, Img, Brand, Size } = req.body
     const newItem = await Item.findByIdAndUpdate({ _id: id },
         {
             $set: {
                 Name,
-                PassMark
+                Price,
+                Color,
+                Img,
+                Brand,
+                Size
             }
         },
         { new: true })
@@ -97,13 +111,14 @@ exports.GetItemId = async (req, res) => {
 }
 
 exports.CreatOrder = async (req, res) => {
-    const { User, Items } = req.body
+    const { User, Items, TotalPrice } = req.body
 
     try {
 
         const OrderCreate = await Order.create({
             User,
             Items,
+            TotalPrice
         })
 
         res.status(201).json({
@@ -111,6 +126,7 @@ exports.CreatOrder = async (req, res) => {
             data: {
                 User: OrderCreate.User,
                 Items: OrderCreate.Items,
+                TotalPrice: OrderCreate.TotalPrice,
             }
         })
 
