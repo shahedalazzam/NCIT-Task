@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const itemSchema = new mongoose.Schema({
     Name: String,
     // Subject: String,
-    PassMark: String
+    PassMark: String,
     // ObtainedMark: String
 
 },

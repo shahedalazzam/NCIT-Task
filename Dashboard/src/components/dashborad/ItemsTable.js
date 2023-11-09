@@ -41,7 +41,7 @@ const ItemsTable = (props) => {
 
     const handleItemNameEdit = async (itemId, newName) => {
         try {
-            await axios.patch(`https://dream-wedding.onrender.com/admin/item/update/${itemId}`, {
+            await axios.patch(`https://ncittasks.onrender.com/admin/item/update/${itemId}`, {
                 Name: newName,
 
             });
@@ -52,40 +52,14 @@ const ItemsTable = (props) => {
 
     const handleItemPassMarkEdit = async (itemId, newPassMark) => {
         try {
-            await axios.patch(`https://dream-wedding.onrender.com/admin/item/update/${itemId}`, {
+            await axios.patch(`https://ncittasks.onrender.com/admin/item/update/${itemId}`, {
                 PassMark: newPassMark,
             });
         } catch (error) {
             console.error('Error updating itemname:', error);
         }
     };
-    const handleItemColorEdit = async (itemId, newColor) => {
-        try {
-            await axios.patch(`https://dream-wedding.onrender.com/admin/item/update/${itemId}`, {
-                Color: newColor,
-            });
-        } catch (error) {
-            console.error('Error updating itemname:', error);
-        }
-    };
-    const handleItemBrandEdit = async (itemId, newBrand) => {
-        try {
-            await axios.patch(`https://dream-wedding.onrender.com/admin/item/update/${itemId}`, {
-                Brand: newBrand,
-            });
-        } catch (error) {
-            console.error('Error updating itemname:', error);
-        }
-    };
-    const handleItemSizeEdit = async (itemId, newSize) => {
-        try {
-            await axios.patch(`https://dream-wedding.onrender.com/admin/item/update/${itemId}`, {
-                Size: newSize,
-            });
-        } catch (error) {
-            console.error('Error updating itemname:', error);
-        }
-    };
+    
 
     return (
         <>
@@ -104,9 +78,9 @@ const ItemsTable = (props) => {
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Name</th>
-                                                    <th>Subject</th>
+                                                    {/* <th>Subject</th> */}
                                                     <th>PassMark</th>
-                                                    <th>ObtainedMark</th>
+                                                    {/* <th>ObtainedMark</th> */}
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -116,9 +90,6 @@ const ItemsTable = (props) => {
                                                             <td>{item._id}</td>
                                                             <td contentEditable={true} onBlur={(e) => handleItemNameEdit(item._id, e.target.innerText)} >{item.Name}</td>
                                                             <td contentEditable={true} onBlur={(e) => handleItemPassMarkEdit(item._id, e.target.innerText)} >{item.PassMark}</td>
-                                                            <td style={{justifyContent:'center',display:'flex'}} contentEditable={true} onBlur={(e) => handleItemColorEdit(item._id, e.target.innerText)} ><div style={{ backgroundColor: item.Color, width: '90px', height: '40px' }}></div></td>
-                                                            <td contentEditable={true} onBlur={(e) => handleItemBrandEdit(item._id, e.target.innerText)} >{item.Brand}</td>
-                                                            <td contentEditable={true} onBlur={(e) => handleItemSizeEdit(item._id, e.target.innerText)} >{item.Size}</td>
                                                             <td>
                                                                 <DeleteItembtn id={item._id} onDelete={handleItemDelete} />
                                                             </td>
