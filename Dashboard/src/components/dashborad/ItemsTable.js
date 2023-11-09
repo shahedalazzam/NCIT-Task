@@ -14,7 +14,7 @@ const ItemsTable = (props) => {
         const fetchItemData = async () => {
             try {
                 const response = await axios.get(
-                    'https://dream-wedding.onrender.com/admin/item'
+                    'https://ncittasks.onrender.com/admin/item'
                 ).catch((err) => {
                     if (err && err.response) {
                         console.log("first")
@@ -41,7 +41,7 @@ const ItemsTable = (props) => {
 
     const handleItemNameEdit = async (itemId, newName) => {
         try {
-            await axios.patch(`https://dream-wedding.onrender.com/admin/item/update/${itemId}`, {
+            await axios.patch(`https://ncittasks.onrender.com/admin/item/update/${itemId}`, {
                 Name: newName,
 
             });
@@ -52,7 +52,7 @@ const ItemsTable = (props) => {
 
     const handleItemBrandEdit = async (itemId, newBrand) => {
         try {
-            await axios.patch(`https://dream-wedding.onrender.com/admin/item/update/${itemId}`, {
+            await axios.patch(`https://ncittasks.onrender.com/admin/item/update/${itemId}`, {
                 Brand: newBrand,
             });
         } catch (error) {

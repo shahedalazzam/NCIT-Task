@@ -21,7 +21,7 @@ const AddItem = () => {
   const onSubmit = async (values) => {
     console.log("object");
     const response = await axios
-      .post("z/admin/item/add", values)
+      .post("https://ncittasks.onrender.com/item/add", values)
       .catch((err) => {
         if (err && err.response) {
           // console.log("Error: ", err.response.data.message)
