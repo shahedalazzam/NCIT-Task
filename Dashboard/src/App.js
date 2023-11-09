@@ -11,7 +11,6 @@ import AddUser from './components/dashborad/AddUser';
 import SideNav from './components/dashborad/SideNav';
 import NavBar from './components/dashborad/NavBar';
 import ItemsTable from './components/dashborad/ItemsTable';
-import OrdersTable from './components/dashborad/OrdersTable';
 import AddItem from './components/dashborad/AddItem';
 
 function App() {
@@ -38,7 +37,6 @@ function App() {
           {/* <Route path="/allusers" element={<UsersTable />} /> */}
           <Route path="/dashboard" element={<UsersTable />} />
           <Route path="/dashboard/items" element={<ItemsTable />} />
-          <Route path="/dashboard/odres" element={<OrdersTable />} />
           <Route path="/dashboard/adduser" element={<AddUser />} />
           <Route path="/dashboard/additem" element={<AddItem />} />
         </Routes>

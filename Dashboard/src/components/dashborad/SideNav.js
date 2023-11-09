@@ -10,10 +10,7 @@ const SideNav = () => {
         <>
             <ul style={{ backgroundColor: "#FDBFC3" }} className="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
-                    <div className="sidebar-brand-icon rotate-n-15">
-                        <i className="fas fa-ring"></i>
-                    </div>
-                    <div className="sidebar-brand-text mx-3">WD Admin</div>
+                    <div className="sidebar-brand-text mx-3">Administrator</div>
                 </a>
                 <li className="nav-item">
                     <Link className="nav-link" to="/dashboard">
@@ -23,12 +20,7 @@ const SideNav = () => {
                 <li className="nav-item">
                     <Link className="nav-link" to="/dashboard/items">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Items</span></Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="/dashboard/odres">
-                        <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Orders</span></Link>
+                        <span>Subject</span></Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/dashboard/adduser">
@@ -38,7 +30,7 @@ const SideNav = () => {
                 <li className="nav-item">
                     <Link className="nav-link" to="/dashboard/additem">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Add Items</span></Link>
+                        <span>Add Subject</span></Link>
                 </li>
 
 

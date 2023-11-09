@@ -12,10 +12,6 @@ const validationSchema = yup.object({
     .min(3, "enter product Name")
     .required("productName is required"),
   Price: yup.string().required("Price is required"),
-  Color: yup.string().required("Color is required"),
-  Brand: yup.string().required("Brand is required"),
-  Size: yup.string().required("Size is required"),
-  Category: yup.string().required("Category is required"),
 });
 
 const AddItem = () => {
@@ -46,11 +42,9 @@ const AddItem = () => {
   const formik = useFormik({
     initialValues: {
       Name: "",
-      Price: "",
-      Color: "",
-      Brand: "",
-      Size: "",
-      Category: "",
+      Subject: "",
+      PassMark: "",
+      ObtainedMark: "",
     },
     validateOnBlur: true,
     onSubmit,
@@ -68,7 +62,7 @@ const AddItem = () => {
           <div className="form-holder">
             <div className="form-content">
               <div className="form-items">
-                <h3>Add Item</h3>
+                <h3>Add Subject</h3>
                 <span className={error ? "error" : ""}>
                   {error ? error : ""}
                 </span>
@@ -88,7 +82,7 @@ const AddItem = () => {
                       className="form-control"
                       type="text"
                       name="Name"
-                      placeholder="Product Name"
+                      placeholder="Subject Name"
                       required
                     />
                     <span
@@ -114,7 +108,7 @@ const AddItem = () => {
                       className="form-control"
                       type="text"
                       name="Price"
-                      placeholder="Price"
+                      placeholder="Pass Mark"
                       required
                     />
                     <span
@@ -129,111 +123,7 @@ const AddItem = () => {
                         : ""}
                     </span>
                   </div>
-
-                  <div className="col-md-12">
-                    <input
-                      onBlur={formik.handleBlur}
-                      onChange={(event) => {
-                        formik.handleChange(event);
-                        handleInputChange(event);
-                      }}
-                      value={formik.values.Color}
-                      className="form-control"
-                      type="color"
-                      name="Color"
-                      required
-                    />
-                    <span
-                      className={
-                        formik.touched.Color && formik.errors.Color
-                          ? "invalid-feedback"
-                          : "valid-feedback"
-                      }
-                    >
-                      {formik.touched.Color && formik.errors.Color
-                        ? formik.errors.Color
-                        : ""}
-                    </span>
-                  </div>
-
-                  <div className="col-md-12">
-                    <input
-                      onBlur={formik.handleBlur}
-                      onChange={(event) => {
-                        formik.handleChange(event);
-                        handleInputChange(event);
-                      }}
-                      value={formik.values.Brand}
-                      className="form-control"
-                      type="text"
-                      name="Brand"
-                      placeholder="Brand"
-                      required
-                    />
-                    <span
-                      className={
-                        formik.touched.Brand && formik.errors.Brand
-                          ? "invalid-feedback"
-                          : "valid-feedback"
-                      }
-                    >
-                      {formik.touched.Brand && formik.errors.Brand
-                        ? formik.errors.Brand
-                        : ""}
-                    </span>
-                  </div>
-                  <div className="col-md-12">
-                    <input
-                      onBlur={formik.handleBlur}
-                      onChange={(event) => {
-                        formik.handleChange(event);
-                        handleInputChange(event);
-                      }}
-                      value={formik.values.Size}
-                      className="form-control"
-                      type="text"
-                      name="Size"
-                      placeholder="Size"
-                      required
-                    />
-                    <span
-                      className={
-                        formik.touched.Size && formik.errors.Size
-                          ? "invalid-feedback"
-                          : "valid-feedback"
-                      }
-                    >
-                      {formik.touched.Size && formik.errors.Size
-                        ? formik.errors.Size
-                        : ""}
-                    </span>
-                  </div>
-                  <div className="col-md-12">
-                    <input
-                      onBlur={formik.handleBlur}
-                      onChange={(event) => {
-                        formik.handleChange(event);
-                        handleInputChange(event);
-                      }}
-                      value={formik.values.Category}
-                      className="form-control"
-                      type="text"
-                      name="Category"
-                      placeholder="Category"
-                      required
-                    />
-                    <span
-                      className={
-                        formik.touched.Category && formik.errors.Category
-                          ? "invalid-feedback"
-                          : "valid-feedback"
-                      }
-                    >
-                      {formik.touched.Category && formik.errors.Category
-                        ? formik.errors.Category
-                        : ""}
-                    </span>
-                  </div>
+                  
                   <div className="form-button mt-3 d-flex justify-content-between">
                     <button id="submit" type="submit" className="btn ">
                       Add

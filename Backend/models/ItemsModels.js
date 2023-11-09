@@ -4,8 +4,9 @@ const mongoose = require('mongoose')
 
 const itemSchema = new mongoose.Schema({
     Name: String,
-    Category: String,
-    
+    Subject: String,
+    PassMark: String,
+    ObtainedMark: String
 
 },
 )
@@ -27,14 +28,6 @@ const orderSchema = new mongoose.Schema({
             },
         },
     ],
-    OrderDate: {
-        type: Date,
-        default: Date.now, // Default to the current date
-    },
-    TotalPrice: {
-        type: Number,
-        min: 0, // Ensure a non-negative total price
-    },
 }
 )
 

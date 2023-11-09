@@ -59,15 +59,6 @@ const UsersTable = (props) => {
       console.error('Error updating username:', error);
     }
   };
-  const handleUserPhoneEdit = async (userId, newPhone) => {
-    try {
-      await axios.patch(`https://ncittasks.onrender.com/admin/update/${userId}`, {
-        Phone: newPhone,
-      });
-    } catch (error) {
-      console.error('Error updating username:', error);
-    }
-  };
 
   return (
     <>
@@ -87,7 +78,6 @@ const UsersTable = (props) => {
                           <th>ID</th>
                           <th>FullName</th>
                           <th>Email</th>
-                          <th>Phone</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -97,7 +87,6 @@ const UsersTable = (props) => {
                               <td>{user._id}</td>
                               <td contentEditable={true} onBlur={(e) => handleUsernameEdit(user._id, e.target.innerText)} >{user.FullName}</td>
                               <td contentEditable={true} onBlur={(e) => handleUserEmailEdit(user._id, e.target.innerText)} >{user.Email}</td>
-                              <td contentEditable={true} onBlur={(e) => handleUserPhoneEdit(user._id, e.target.innerText)} >{user.Phone}</td>
                               <td>
                                 <DeleteBtn id={user._id} onDelete={handleUserDelete} 
                                 

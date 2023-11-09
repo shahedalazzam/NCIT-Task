@@ -104,10 +104,9 @@ const ItemsTable = (props) => {
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Name</th>
-                                                    <th>Price</th>
-                                                    <th>Color</th>
-                                                    <th>Brand</th>
-                                                    <th>Size</th>
+                                                    <th>Subject</th>
+                                                    <th>PassMark</th>
+                                                    <th>ObtainedMark</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
