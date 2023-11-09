@@ -7,7 +7,7 @@ const signToken = (id) => {
 };
 
 exports.CreatUser = async (req, res) => {
-    const { FirstName,LastName, Email, Password, Phone, Img } = req.body
+    const { FirstName,LastName, Email, Password } = req.body
     const FullName=`${FirstName} ${LastName}`
     try {
 
@@ -24,9 +24,7 @@ exports.CreatUser = async (req, res) => {
                 Role:"user",
                 FullName,
                 Email,
-                Password: PasswordHash,
-                Phone,
-                Img
+                Password: PasswordHash
             })
 
 
@@ -40,10 +38,7 @@ exports.CreatUser = async (req, res) => {
                     Role:UserCreate.Role,
                     FullName: UserCreate.FullName,
                     Email: UserCreate.Email,
-                    Password: UserCreate.Password,
-                    Phone: UserCreate.Phone,
-                    Img: UserCreate.Img
-
+                    Password: UserCreate.Password
                 }
             })
         }
