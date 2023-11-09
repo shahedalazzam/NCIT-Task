@@ -42,9 +42,9 @@ const AddItem = () => {
   const formik = useFormik({
     initialValues: {
       Name: "",
-      Subject: "",
+      // Subject: "",
       PassMark: "",
-      ObtainedMark: "",
+      // ObtainedMark: "",
     },
     validateOnBlur: true,
     onSubmit,

@@ -22,7 +22,7 @@ exports.CreatItem = async (req, res) => {
                 message: "Successful Create Item",
                 data: {
                     Name: ItemCreate.Name,
-                    PassMark: ItemCreate.PassMark,
+                    PassMark: ItemCreate.PassMark
                 }
             })
         }
