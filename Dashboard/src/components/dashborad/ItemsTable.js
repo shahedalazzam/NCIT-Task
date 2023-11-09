@@ -14,7 +14,7 @@ const ItemsTable = (props) => {
         const fetchItemData = async () => {
             try {
                 const response = await axios.get(
-                    'https://dream-wedding.onrender.com/admin/item'
+                    'https://ncittasks.onrender.com/admin/item'
                 ).catch((err) => {
                     if (err && err.response) {
                         console.log("first")

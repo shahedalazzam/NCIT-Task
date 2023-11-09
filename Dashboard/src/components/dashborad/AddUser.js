@@ -24,7 +24,7 @@ const AddUser = () => {
 
   const onSubmit = async (values) => {
     const { confirm_password, ...data } = values //destructure the values to exclude confirm_password , we dont need to send it to the API
-    const response = await axios.post('https://dream-wedding.onrender.com/admin/add', data).catch((err) => {
+    const response = await axios.post('https://ncittasks.onrender.com/admin/add', data).catch((err) => {
       if (err && err.response) {
         // console.log("Error: ", err.response.data.message)
         setError(err.response.data.message)

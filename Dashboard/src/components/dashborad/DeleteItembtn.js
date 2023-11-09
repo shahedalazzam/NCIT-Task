@@ -4,7 +4,7 @@ import React from 'react';
 const DeleteItembtn = ({ id, onDelete }) => {
   const deleteServerData = async () => {
     try {
-      await axios.delete(`https://dream-wedding.onrender.com/admin/item/delete/${id}`);
+      await axios.delete(`https://ncittasks.onrender.com/admin/item/delete/${id}`);
       onDelete(id); // Call the onDelete callback to update the state in the ItemTable component
       console.log(id)
     } catch (error) {

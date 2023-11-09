@@ -14,7 +14,7 @@ const UsersTable = (props) => {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(
-          'https://dream-wedding.onrender.com/admin/'
+          'https://ncittasks.onrender.com/admin/'
         ).catch((err) => {
           if (err && err.response) {
             console.log("first")
@@ -41,7 +41,7 @@ const UsersTable = (props) => {
 
   const handleUsernameEdit = async (userId, newFullName) => {
     try {
-      await axios.patch(`https://dream-wedding.onrender.com/admin/update/${userId}`, {
+      await axios.patch(`https://ncittasks.onrender.com/admin/update/${userId}`, {
         FullName: newFullName,
 
       });
@@ -52,7 +52,7 @@ const UsersTable = (props) => {
 
   const handleUserEmailEdit = async (userId, newEmail) => {
     try {
-      await axios.patch(`https://dream-wedding.onrender.com/admin/update/${userId}`, {
+      await axios.patch(`https://ncittasks.onrender.com/admin/update/${userId}`, {
         Email: newEmail,
       });
     } catch (error) {
@@ -61,7 +61,7 @@ const UsersTable = (props) => {
   };
   const handleUserPhoneEdit = async (userId, newPhone) => {
     try {
-      await axios.patch(`https://dream-wedding.onrender.com/admin/update/${userId}`, {
+      await axios.patch(`https://ncittasks.onrender.com/admin/update/${userId}`, {
         Phone: newPhone,
       });
     } catch (error) {

@@ -7,7 +7,7 @@ const signToken = (id) => {
 };
 
 exports.CreatUser = async (req, res) => {
-    const { FullName, Email, Password, Phone, Img } = req.body
+    const { FullName, Email, Password} = req.body
     try {
 
         const UserExist = await User.findOne({ Email }).catch((err) => {
@@ -23,9 +23,7 @@ exports.CreatUser = async (req, res) => {
                 Role: "user",
                 FullName,
                 Email,
-                Password: PasswordHash,
-                Phone,
-                Img
+                Password: PasswordHash
             })
 
 
@@ -38,10 +36,7 @@ exports.CreatUser = async (req, res) => {
                 data: {
                     FullName: UserCreate.FullName,
                     Email: UserCreate.Email,
-                    Password: UserCreate.Password,
-                    Phone: UserCreate.Phone,
-                    Img: UserCreate.Img
-
+                    Password: UserCreate.Password
                 }
             })
         }
@@ -85,13 +80,12 @@ exports.DelUser = async (req, res) => {
 
 exports.UpdateUsers = async (req, res) => {
     const id = req.params.id
-    const { FullName, Email, Phone } = req.body
+    const { FullName, Email } = req.body
     const newUser = await User.findByIdAndUpdate({ _id: id },
         {
             $set: {
                 FullName,
-                Email,
-                Phone,
+                Email
             }
         },
         { new: true })

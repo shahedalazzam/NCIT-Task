@@ -18,7 +18,7 @@ const Loginform = (props) => {
 
         try {
             const response = await axios.post(
-                "https://dream-wedding.onrender.com/admin/login",
+                "https://ncittasks.onrender.com/admin/login",
                 values
             );
 
