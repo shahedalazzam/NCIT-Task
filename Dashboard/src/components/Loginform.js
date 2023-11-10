@@ -11,7 +11,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Loginform = (props) => {
     const [error, setError] = useState(null)
-    // const [user_id, setUserId] = useState('')
     const [username, setUsername] = useState('')
     let navigate = useNavigate();
     const onSubmit = async (values) => {
@@ -33,7 +32,7 @@ const Loginform = (props) => {
             }
         } catch (error) {
             if (error.response) {
-                setError(error.response.data.message); // Display the error message from the server
+                setError(error.response.data.message);
             } else {
                 setError("Network error. Please check your internet connection.");
             }
@@ -43,7 +42,6 @@ const Loginform = (props) => {
 
 
 
-    // const PASS_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
     const validationSchema = yup.object({
         Email: yup.string().required("Email is required"),
         Password: yup.string().required("Password is required"),
@@ -55,21 +53,6 @@ const Loginform = (props) => {
         onSubmit,
         validationSchema: validationSchema
     })
-
-    // const sendDataToParent = () => {
-    // console.log("nothing", user_id)
-    // props.myFunc(user_id)
-    // props.myUsername(username)
-    // console.log("username in login", username)
-    // }
-
-
-    // useEffect(() => {
-    //     console.log("nothing", user_id);
-    //     props.myFunc(user_id);
-    // }, [user_id, props]);
-
-
     const handleInputChange = (event) => {
         setError(null)
     };
@@ -83,7 +66,7 @@ const Loginform = (props) => {
                             <span className={error ? 'error' : ''}>{error ? error : ''}</span>
                             <form
                                 className="requires-validation"
-                                onSubmit={formik.handleSubmit} // to prevent submit
+                                onSubmit={formik.handleSubmit}
                                 noValidate
                             >
                                 <div className="col-md-12">
@@ -103,7 +86,6 @@ const Loginform = (props) => {
                                 <div className="form-button mt-3 d-flex justify-content-between">
                                     <button
                                         id="submit" type="submit" className="btn">Get In</button>
-                                    {/* <p>New here? Let's get you <Link className='login_link' to={'/'}>registered!</Link></p> */}
                                 </div>
                             </form>
                         </div>

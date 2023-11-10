@@ -101,14 +101,14 @@ exports.GetItemId = async (req, res) => {
 
 
 exports.CreatOrder = async (req, res) => {
-    const { User, Items, TotalPrice } = req.body
+    const { User, Items } = req.body
 
     try {
 
         const OrderCreate = await Order.create({
             User,
             Items,
-            TotalPrice
+            
         })
 
         res.status(201).json({
@@ -116,7 +116,6 @@ exports.CreatOrder = async (req, res) => {
             data: {
                 User: OrderCreate.User,
                 Items: OrderCreate.Items,
-                TotalPrice: OrderCreate.TotalPrice,
             }
         })
 
