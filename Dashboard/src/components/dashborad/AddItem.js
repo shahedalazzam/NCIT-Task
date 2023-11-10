@@ -19,9 +19,8 @@ const AddItem = () => {
   let navigate = useNavigate();
 
   const onSubmit = async (values) => {
-    console.log("object");
-    const response = await axios
-      .post("https://ncittasks.onrender.com/item/add", values)
+    // console.log("object");
+    const response = await axios.post("https://ncittasks.onrender.com/item/add", values)
       .catch((err) => {
         if (err && err.response) {
           // console.log("Error: ", err.response.data.message)

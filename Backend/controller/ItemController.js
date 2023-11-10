@@ -21,8 +21,8 @@ exports.CreatItem = async (req, res) => {
             res.status(201).json({
                 message: "Successful Create Item",
                 data: {
-                    Name: ItemCreate.Name,
-                    Brand: ItemCreate.Brand
+                    Name: newItem.Name,
+                    Brand: newItem.Brand
                 }
             })
         }
