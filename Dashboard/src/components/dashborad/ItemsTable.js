@@ -50,10 +50,10 @@ const ItemsTable = (props) => {
         }
     };
 
-    const handleItemBrandEdit = async (itemId, newBrand) => {
+    const handleItemPassMarkEdit = async (itemId, newPassMark) => {
         try {
             await axios.patch(`https://ncittasks.onrender.com/admin/item/update/${itemId}`, {
-                Brand: newBrand,
+                PassMark: newPassMark,
             });
         } catch (error) {
             console.error('Error updating itemname:', error);
@@ -86,7 +86,7 @@ const ItemsTable = (props) => {
                                                         <tr key={index}>
                                                             <td>{item._id}</td>
                                                             <td contentEditable={true} onBlur={(e) => handleItemNameEdit(item._id, e.target.innerText)} >{item.Name}</td>
-                                                            <td contentEditable={true} onBlur={(e) => handleItemBrandEdit(item._id, e.target.innerText)} >{item.Brand}</td>
+                                                            <td contentEditable={true} onBlur={(e) => handleItemPassMarkEdit(item._id, e.target.innerText)} >{item.PassMark}</td>
                                                             <td>
                                                                 <DeleteItembtn id={item._id} onDelete={handleItemDelete} />
                                                             </td>

@@ -2,10 +2,10 @@ const { Order, Item } = require("../models/ItemsModels");
 const UserModel = require("../models/UserModels");
 
 exports.CreatItem = async (req, res) => {
-    const { Name, Brand } = req.body
+    const { Name, PassMark } = req.body
     try {
 
-        const ItemExist = await Item.findOne({ Name, Brand }).catch((err) => {
+        const ItemExist = await Item.findOne({ Name, PassMark }).catch((err) => {
             console.log("Error: ", err)
         })
 
@@ -15,14 +15,14 @@ exports.CreatItem = async (req, res) => {
         else {
             const ItemCreate = await Item.create({
                 Name,
-                Brand
+                PassMark
             })
 
             res.status(201).json({
                 message: "Successful Create Item",
                 data: {
                     Name: ItemCreate.Name,
-                    Brand: ItemCreate.Brand
+                    PassMark: ItemCreate.PassMark
                 }
             })
         }
@@ -62,12 +62,12 @@ exports.GetItem = async (req, res) => {
 
 exports.UpadetItem = async (req, res) => {
     const id = req.params.id
-    const { Name, Brand} = req.body
+    const { Name, PassMark} = req.body
     const newItem = await Item.findByIdAndUpdate({ _id: id },
         {
             $set: {
                 Name,
-                Brand
+                PassMark
             }
         },
         { new: true })

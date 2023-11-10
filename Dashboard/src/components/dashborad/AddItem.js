@@ -11,7 +11,7 @@ const validationSchema = yup.object({
     .string()
     .min(3, "enter product Name")
     .required("productName is required"),
-  Brand: yup.string().required("Brand is required"),
+  PassMark: yup.string().required("Pass Mark is required"),
 });
 
 const AddItem = () => {
@@ -19,21 +19,16 @@ const AddItem = () => {
   let navigate = useNavigate();
 
   const onSubmit = async (values) => {
-    // console.log("object");
-    const response = await axios.post("https://ncittasks.onrender.com/item/add", values)
+    console.log("object");
+    const response = await axios.post("https://ncittasks.onrender.com/admin/item/add", values)
       .catch((err) => {
         if (err && err.response) {
-          // console.log("Error: ", err.response.data.message)
           setError(err.response.data.message);
-          // setSuccess(null)
         }
       });
     if (response && response.data) {
       console.log(response.data.data);
-      // localStorage.setItem('token', JSON.stringify(response.data.token));   //store the token in local session
-      // setError(null)
-      // setSuccess(response.data.message)
-      navigate("/dashboard/items"); //redirect to the profile page
+      navigate("/dashboard/items");
       formik.resetForm();
     }
   };
@@ -41,7 +36,7 @@ const AddItem = () => {
   const formik = useFormik({
     initialValues: {
       Name: "",
-      Brand: "",
+      PassMark: "",
     },
     validateOnBlur: true,
     onSubmit,
@@ -59,7 +54,7 @@ const AddItem = () => {
           <div className="form-holder">
             <div className="form-content">
               <div className="form-items">
-                <h3>Add Item</h3>
+                <h3>Add Subject</h3>
                 <span className={error ? "error" : ""}>
                   {error ? error : ""}
                 </span>
@@ -79,7 +74,7 @@ const AddItem = () => {
                       className="form-control"
                       type="text"
                       name="Name"
-                      placeholder="Product Name"
+                      placeholder="Subject Name"
                       required
                     />
                     <span
@@ -102,22 +97,22 @@ const AddItem = () => {
                         formik.handleChange(event);
                         handleInputChange(event);
                       }}
-                      value={formik.values.Brand}
+                      value={formik.values.PassMark}
                       className="form-control"
                       type="text"
-                      name="Brand"
+                      name="PassMark"
                       placeholder="Pass Mark"
                       required
                     />
                     <span
                       className={
-                        formik.touched.Brand && formik.errors.Brand
+                        formik.touched.PassMark && formik.errors.PassMark
                           ? "invalid-feedback"
                           : "valid-feedback"
                       }
                     >
-                      {formik.touched.Brand && formik.errors.Brand
-                        ? formik.errors.Brand
+                      {formik.touched.PassMark && formik.errors.PassMark
+                        ? formik.errors.PassMark
                         : ""}
                     </span>
                   </div>
