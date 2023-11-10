@@ -9,32 +9,35 @@ const ItemsTable = (props) => {
     const token = sessionStorage.getItem('token');
 
     const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchItemData = async () => {
             try {
-                const response = await axios.get(
-                    'https://ncittasks.onrender.com/admin/item'
-                ).catch((err) => {
-                    if (err && err.response) {
-                        console.log("first")
-                        console.log('Error: ', err.response.data.error);
-                    }
-                });
+                const response = await axios.get('https://ncittasks.onrender.com/admin/item');
 
                 if (response && response.data) {
                     setItems(response.data.data.Items);
                 }
             } catch (error) {
-                console.error('Error fetching item data:', error);
+                setError(error);
+            } finally {
+                setLoading(false);
             }
         };
+
         fetchItemData();
     }, []);
 
-    const handleItemDelete = (deletedItemId) => {
-        // filter the old items in the array and returns new array of items there id does not 
-        setItems((prevItems) => prevItems.filter((item) => item._id !== deletedItemId));
+    const handleItemDelete = async (deletedItemId) => {
+        try {
+            // Make a DELETE request to your API endpoint for item deletion
+            await axios.delete(`https://ncittasks.onrender.com/admin/item/${deletedItemId}`);
+            setItems((prevItems) => prevItems.filter((item) => item._id !== deletedItemId));
+        } catch (error) {
+            console.error('Error deleting item:', error);
+        }
     };
 
     let navigate = useNavigate();
@@ -43,10 +46,9 @@ const ItemsTable = (props) => {
         try {
             await axios.patch(`https://ncittasks.onrender.com/admin/item/update/${itemId}`, {
                 Name: newName,
-
             });
         } catch (error) {
-            console.error('Error updating itemname:', error);
+            console.error('Error updating item name:', error);
         }
     };
 
@@ -56,9 +58,17 @@ const ItemsTable = (props) => {
                 PassMark: newPassMark,
             });
         } catch (error) {
-            console.error('Error updating itemname:', error);
+            console.error('Error updating item pass mark:', error);
         }
     };
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+    if (error) {
+        return <p>Error: {error.message}</p>;
+    }
 
     return (
         <>
@@ -81,18 +91,20 @@ const ItemsTable = (props) => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {items.map((item, index) => {
-                                                    return (
-                                                        <tr key={index}>
-                                                            <td>{item._id}</td>
-                                                            <td contentEditable={true} onBlur={(e) => handleItemNameEdit(item._id, e.target.innerText)} >{item.Name}</td>
-                                                            <td contentEditable={true} onBlur={(e) => handleItemPassMarkEdit(item._id, e.target.innerText)} >{item.PassMark}</td>
-                                                            <td>
-                                                                <DeleteItembtn id={item._id} onDelete={handleItemDelete} />
-                                                            </td>
-                                                        </tr>
-                                                    );
-                                                })}
+                                                {items.map((item, index) => (
+                                                    <tr key={index}>
+                                                        <td>{item._id}</td>
+                                                        <td contentEditable={true} onBlur={(e) => handleItemNameEdit(item._id, e.target.innerText)}>
+                                                            {item.Name}
+                                                        </td>
+                                                        <td contentEditable={true} onBlur={(e) => handleItemPassMarkEdit(item._id, e.target.innerText)}>
+                                                            {item.PassMark}
+                                                        </td>
+                                                        <td>
+                                                            <DeleteItembtn id={item._id} onDelete={() => handleItemDelete(item._id)} />
+                                                        </td>
+                                                    </tr>
+                                                ))}
                                             </tbody>
                                         </table>
                                     </div>
