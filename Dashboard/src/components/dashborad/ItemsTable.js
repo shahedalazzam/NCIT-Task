@@ -32,7 +32,6 @@ const ItemsTable = (props) => {
 
     const handleItemDelete = async (deletedItemId) => {
         try {
-            // Make a DELETE request to your API endpoint for item deletion
             await axios.delete(`https://ncittasks.onrender.com/admin/item/${deletedItemId}`);
             setItems((prevItems) => prevItems.filter((item) => item._id !== deletedItemId));
         } catch (error) {
