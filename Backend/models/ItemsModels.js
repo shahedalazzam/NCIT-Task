@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 
 const itemSchema = new mongoose.Schema({
     Name: String,
-    Size: String
+    Brand: String
 
 },
 )

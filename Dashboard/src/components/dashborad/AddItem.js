@@ -107,7 +107,7 @@ const AddItem = () => {
                       className="form-control"
                       type="text"
                       name="Brand"
-                      placeholder="Brand"
+                      placeholder="Pass Mark"
                       required
                     />
                     <span

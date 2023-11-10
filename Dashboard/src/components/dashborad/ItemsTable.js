@@ -77,7 +77,7 @@ const ItemsTable = (props) => {
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Name</th>
-                                                    <th>Brand</th>
+                                                    <th>Pass Mark</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

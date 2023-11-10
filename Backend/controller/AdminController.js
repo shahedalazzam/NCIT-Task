@@ -133,13 +133,3 @@ exports.GetUser = async (req, res) => {
         res.status(500).json({ error: "Cannot Login the user" });
     }
 }
-
-
-// exports.Name = async (req, res) => {
-//     const { FullName} = req.body
-//         res.status(200).json({
-//             data:
-//                 `Hello ${FullName}`
-//         })
-
-// }
